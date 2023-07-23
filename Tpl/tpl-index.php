@@ -3,14 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Task Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body class="bg-body-tertiary fw-bolder">
 <nav class="navbar  bg-dark-subtle mx-3 rounded-bottom-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://www.svgrepo.com/download/528260/folder-2.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="https://www.svgrepo.com/download/528260/folder-2.svg" alt="Logo" width="30" height="24"
+                 class="d-inline-block align-text-top">
             Task Manager
         </a>
     </div>
