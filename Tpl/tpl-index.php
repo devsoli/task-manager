@@ -10,7 +10,7 @@
 <body class="bg-body-tertiary fw-bolder">
 <nav class="navbar  bg-dark-subtle mx-3 rounded-bottom-4">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?= $_SERVER['PHP_SELF']?>">
             <img src="https://www.svgrepo.com/download/528260/folder-2.svg" alt="Logo" width="30" height="24"
                  class="d-inline-block align-text-top">
             Task Manager
@@ -24,7 +24,7 @@
                 <div class="mt-sm-3 fs-3 ">
                     Add Folder
                 </div>
-                <form class="form-control-dark m-5"">
+                <form class="form-control-dark m-5" method="post" action="<?= $_SERVER['PHP_SELF'] ?>?add_folder">
                 <div class="row g-2">
                     <div class="col-sm-8">
                         <input type="text" name="folderName" class="form-control" placeholder="Folder name" aria-label="City">
@@ -34,6 +34,11 @@
                     </div>
                 </div>
                 </form>
+                <?php if (!empty($message)){?>
+                <div class="alert alert-<?= $message->type ?>" role="alert">
+                  <?= $message->text ?>
+                </div>
+                <?php }?>
             </div>
         </div>
     </div>
