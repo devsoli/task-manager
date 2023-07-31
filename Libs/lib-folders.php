@@ -17,3 +17,12 @@ function getFolders(){
 
 }
 
+function deleteFolder($id){
+    global $pdo;
+    $sql="DELETE FROM folders WHERE id=?";
+    $pdo->prepare($sql)->execute([$id]);
+
+}
+{
+
+}

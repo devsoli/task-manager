@@ -1,6 +1,8 @@
 <?php
 include 'Bootstrap/init.php';
 
+$folders=getFolders();
+
 if (isset($_POST['addFolder'])){
     $folderName=$_POST['folderName'];
     if (!empty($folderName)){
@@ -16,6 +18,10 @@ if (isset($_POST['addFolder'])){
         ];
     }
 
+}
+if (isset($_GET['delete_folder'])){
+    deleteFolder($_GET['delete_folder']);
+    header("location:$_SERVER[PHP_SELF]");
 }
 
 include 'Tpl/tpl-index.php';

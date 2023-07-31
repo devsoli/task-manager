@@ -49,18 +49,23 @@
     <div class="mt-sm-2 fs-3 mb-2">
         Folders List
     </div>
+    <br>
 <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action active mt-2" >
-        All Tasks
-        <button type="submit" class="btn btn-danger mx-auto">
-            Delete
-        </button>
+    <button type="button" class="list-group-item list-group-item-action bg-success-subtle mt-2" >
+        <b>All Tasks</b>
+
     </button>
-    <button type="button" class="list-group-item list-group-item-action">A second button item
-        <button type="submit" class="btn btn-danger mx-auto">
-            Delete
-        </button>
-    </button>
+    <br>
+ <hr>
+    <br>
+    <?php foreach ($folders as $folder) {?>
+    <button type="button" class="list-group-item list-group-item-action"><?= $folder->name ?></button>
+        <br>
+       <a href="?delete_folder=<?=$folder->id?>">
+        <button type="submit" class="btn btn-danger mx-auto">Delete</button>
+       </a>
+        <hr>
+    <?php } ?>
 </div>
 </div>
 
