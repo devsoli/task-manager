@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 </form>
-                <?php if (!empty($message)){?>
+                <?php if (!empty($message) And $message->for=='folder'){?>
                 <div class="alert alert-<?= $message->type ?>" role="alert">
                   <?= $message->text ?>
                 </div>
@@ -51,15 +51,19 @@
     </div>
     <br>
 <div class="list-group">
+    <a class="link-underline-light" href="?all_tasks">
     <button type="button" class="list-group-item list-group-item-action bg-success-subtle mt-2" >
         <b>All Tasks</b>
 
     </button>
+    </a>
     <br>
  <hr>
     <br>
     <?php foreach ($folders as $folder) {?>
-    <button type="button" class="list-group-item list-group-item-action"><?= $folder->name ?></button>
+            <a class="link-underline-light" href="?folder_id=<?=$folder->id?>">
+    <button type="button"  class="list-group-item list-group-item-action"><?= $folder->name ?></button>
+            </a>
         <br>
        <a href="?delete_folder=<?=$folder->id?>">
         <button type="submit" class="btn btn-danger mx-auto">Delete</button>
@@ -68,7 +72,7 @@
     <?php } ?>
 </div>
 </div>
-
+<?php if ($_GET['folder_id']){?>
 <div class="m-5">
 
     <div class="container-fluid px-1 py-5 mx-auto ">
@@ -78,21 +82,28 @@
                     <div class="mt-sm-3 fs-3 ">
                         Add Task
                     </div>
-                    <form class="form-control-dark m-5"">
+                    <form class="form-control-dark m-5" action="" method="post">
                     <div class="row g-2">
                         <div class="col-sm-8">
                             <input type="text" name="taskTitle" class="form-control" placeholder="Task Title" aria-label="City">
                         </div>
                         <div class="col-sm-2">
-                            <button type="submit" name="addFolder" class="btn btn-secondary px-5">Add</button>
+                            <button type="submit" name="addTask" class="btn btn-secondary px-5">Add</button>
                         </div>
 
                     </div>
                     </form>
+                    <?php if (!empty($message) And $message->for=='Task'){?>
+                        <div class="alert alert-<?= $message->type ?>" role="alert">
+                            <?= $message->text ?>
+                        </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
     </div>
+    <?php }?>
+    <?php if ($_GET['folder_id'] or $_GET['all_tasks']){?>
 <table class="table">
     <thead>
     <tr>
@@ -103,26 +114,21 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
+
     <tr>
         <th scope="row">1</th>
         <td>Mark</td>
         <td>Otto</td>
-        <td>@mdo</td>
+        <td>
+            <button type="submit" class="btn btn-success mx-auto">Done</button>
+            <button type="submit" class="btn btn-danger mx-auto">Delete</button>
+        </td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+
     </tbody>
 </table>
 </div>
+<?php }?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
