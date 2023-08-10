@@ -15,3 +15,11 @@ function getTasks($folderId){
     $stmt->execute([$folderId]);
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+function getAllTasks(){
+    global $pdo;
+    $sql="SELECT * FROM tasks";
+    $stmt=$pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
