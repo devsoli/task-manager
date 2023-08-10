@@ -121,8 +121,13 @@
         <td><?=$task->folder_id ?></td>
         <td><?=$task->created_at?></td>
         <td>
-            <button type="submit" class="btn btn-success mx-auto">Done</button>
-            <button type="submit" class="btn btn-danger mx-auto">Delete</button>
+
+            <a href="?Done=<?=$task->id?>">
+                <button type="submit"  class="btn btn-success mx-auto">Done</button>
+            </a>
+            <form method="get" action="">
+                <button type="submit" class="btn btn-danger mx-auto">Delete</button>
+            </form>
         </td>
     </tr>
     <?php endforeach;?>

@@ -53,4 +53,10 @@ if (isset($_GET['folder_id'])){
 if (isset($_GET['all_tasks'])){
     $tasks=getAllTasks();
 }
+
+if (isset($_GET['Done'])){
+   doneTask($_GET['Done']);
+}
+
+
 include 'Tpl/tpl-index.php';

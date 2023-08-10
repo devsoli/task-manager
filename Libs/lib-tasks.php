@@ -23,3 +23,11 @@ function getAllTasks(){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+function doneTask($task_id){
+    global $pdo;
+    $sql="UPDATE tasks SET is_done=1 WHERE id = ?";
+    $stmt=$pdo->prepare($sql);
+    return $stmt->execute([$task_id]);
+
+}
