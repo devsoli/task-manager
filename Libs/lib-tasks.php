@@ -28,5 +28,10 @@ function doneTask($task_id){
     $sql="UPDATE tasks SET is_done=1 WHERE id = ?";
     $stmt=$pdo->prepare($sql);
     return $stmt->execute([$task_id]);
-
+}
+function notDoneTask($task_id){
+    global $pdo;
+    $sql="UPDATE tasks SET is_done=0 WHERE id = ?";
+    $stmt=$pdo->prepare($sql);
+    return $stmt->execute([$task_id]);
 }

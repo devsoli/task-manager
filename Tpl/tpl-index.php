@@ -121,13 +121,18 @@
         <td><?=$task->folder_id ?></td>
         <td><?=$task->created_at?></td>
         <td>
-
+        <?php if ($task->is_done=='0'):?>
             <a href="?Done=<?=$task->id?>">
                 <button type="submit"  class="btn btn-success mx-auto">Done</button>
             </a>
-            <form method="get" action="">
+            <?php else:?>
+            <a href="?NotDone=<?=$task->id?>">
+                <button type="submit"  class="btn btn-warning mx-auto">Not Done</button>
+            </a>
+            <?php endif;?>
+            <a>
                 <button type="submit" class="btn btn-danger mx-auto">Delete</button>
-            </form>
+            </a>
         </td>
     </tr>
     <?php endforeach;?>

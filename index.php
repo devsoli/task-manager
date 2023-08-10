@@ -59,5 +59,7 @@ if (isset($_GET['Done'])){
     doneTask($_GET['Done']);
 }
 
-
+if (isset($_GET['NotDone'])){
+    notDoneTask($_GET['NotDone']);
+}
 include 'Tpl/tpl-index.php';
