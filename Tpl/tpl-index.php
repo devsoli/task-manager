@@ -130,7 +130,7 @@
                 <button type="submit"  class="btn btn-warning mx-auto">Not Done</button>
             </a>
             <?php endif;?>
-            <a>
+            <a href="?delete_task=<?=$task->id?>">
                 <button type="submit" class="btn btn-danger mx-auto">Delete</button>
             </a>
         </td>

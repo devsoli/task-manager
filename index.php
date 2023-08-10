@@ -62,4 +62,8 @@ if (isset($_GET['Done'])){
 if (isset($_GET['NotDone'])){
     notDoneTask($_GET['NotDone']);
 }
+
+if (isset($_GET['delete_task'])){
+    deleteTask($_GET['delete_task']);
+}
 include 'Tpl/tpl-index.php';

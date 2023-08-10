@@ -23,15 +23,22 @@ function getAllTasks(){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
-function doneTask($task_id){
+function doneTask($taskId){
     global $pdo;
     $sql="UPDATE tasks SET is_done=1 WHERE id = ?";
     $stmt=$pdo->prepare($sql);
-    return $stmt->execute([$task_id]);
+    return $stmt->execute([$taskId]);
 }
-function notDoneTask($task_id){
+function notDoneTask($taskId){
     global $pdo;
     $sql="UPDATE tasks SET is_done=0 WHERE id = ?";
     $stmt=$pdo->prepare($sql);
-    return $stmt->execute([$task_id]);
+    return $stmt->execute([$taskId]);
+}
+
+function deleteTask($taskId){
+    global $pdo;
+    $sql="DELETE FROM tasks WHERE id=?";
+    $stmt=$pdo->prepare($sql);
+    return $stmt->execute([$taskId]);
 }
