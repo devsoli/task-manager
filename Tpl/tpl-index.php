@@ -34,11 +34,11 @@
                     </div>
                 </div>
                 </form>
-                <?php if (!empty($message) And $message->for=='folder'){?>
+                <?php if (!empty($message) And $message->for=='folder'):?>
                 <div class="alert alert-<?= $message->type ?>" role="alert">
                   <?= $message->text ?>
                 </div>
-                <?php }?>
+                <?php endif;?>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
     <br>
  <hr>
     <br>
-    <?php foreach ($folders as $folder) {?>
+    <?php foreach ($folders as $folder):?>
             <a class="link-underline-light" href="?folder_id=<?=$folder->id?>">
     <button type="button"  class="list-group-item list-group-item-action"><?= $folder->name ?></button>
             </a>
@@ -69,7 +69,7 @@
         <button type="submit" class="btn btn-danger mx-auto">Delete</button>
        </a>
         <hr>
-    <?php } ?>
+    <?php endforeach; ?>
 </div>
 </div>
 <?php if ($_GET['folder_id']){?>
@@ -93,18 +93,19 @@
 
                     </div>
                     </form>
-                    <?php if (!empty($message) And $message->for=='Task'){?>
+                    <?php if (!empty($message) And $message->for=='Task'):?>
                         <div class="alert alert-<?= $message->type ?>" role="alert">
                             <?= $message->text ?>
                         </div>
-                    <?php }?>
+                    <?php endif?>
                 </div>
             </div>
         </div>
     </div>
     <?php }?>
-    <?php if ($_GET['folder_id'] or $_GET['all_tasks']){?>
-<table class="table">
+    <?php if (isset($_GET['folder_id']) or isset($_GET['all_tasks'])):?>
+
+<table class="table rounded-4">
     <thead>
     <tr>
         <th scope="col">Task</th>
@@ -114,21 +115,23 @@
     </tr>
     </thead>
     <tbody class="table-group-divider">
-
+    <?php foreach ($tasks as $task): ?>
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+        <th scope="row"><?=$task->title?></th scope="row">
+        <td><?=$task->folder_id ?></td>
+        <td><?=$task->created_at?></td>
         <td>
             <button type="submit" class="btn btn-success mx-auto">Done</button>
             <button type="submit" class="btn btn-danger mx-auto">Delete</button>
         </td>
     </tr>
+    <?php endforeach;?>
 
     </tbody>
 </table>
-</div>
-<?php }?>
+    </div>
+
+<?php endif;?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

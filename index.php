@@ -46,4 +46,7 @@ if (isset($_POST['addTask'])){
     }
 
 }
+if (isset($_GET['folder_id'])){
+    $tasks=getTasks($_GET['folder_id']);
+}
 include 'Tpl/tpl-index.php';
